@@ -1,66 +1,106 @@
 <!doctype html>
 <html>
-    <head>
-        <title>TrapRange Invoice: Parsing PDF invoices and bills</title>
+<head>
+  <title>TrapRange Invoices: Enterprise Solution for Parsing PDF Invoices and Bills</title>
 
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="">
-        <meta name="author" content="">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="TrapRange Invoices: Enterprise Solution for Parsing PDF Invoices and Bills">
 
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/main.css">
-        <script src="script/jquery-2.2.4.min.js"></script>
-        <script src="script/bootstrap.min.js"></script>
-    </head>
-    <body>
-        <!-- Fixed navbar -->
-        <nav class="navbar navbar-default navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <span class="navbar-brand" href="#">TrapRange Invoice</span>
-                </div>
-                <div id="navbar" class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav" style="float: right">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li class="dropdown-header">Nav header</li>
-                                <li><a href="#">Separated link</a></li>
-                                <li><a href="#">One more separated link</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div><!--/.nav-collapse -->
-            </div>
-        </nav>
+  <meta name="description" content="Enterprise Solution for Parsing PDF Invoices">
 
-        <!-- Begin page content -->
-        <div class="container">
-            <div class="page-header">
-                <h1>Sticky footer with fixed navbar</h1>
-            </div>
-            <p class="lead">Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added with <code>padding-top: 60px;</code> on the <code>body &gt; .container</code>.</p>
-            <p>Back to <a href="../sticky-footer">the default sticky footer</a> minus the navbar.</p>
-        </div>
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Enterprise Solution for Parsing PDF Invoices and Bills" />
+  <meta property="og:description" content="Enterprise Solution for Parsing PDF Invoices and Bills" />
+  <meta property="og:url" content="https://cuahang.lienminh.garena.vn/" />
+  <meta property="og:site_name" content="TrapRange Invoices" />
 
-        <footer class="footer">
-            <div class="container">
-                <p class="text-muted">Place sticky footer content here.</p>
-            </div>
-        </footer>
-    </body>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/jquery.jsonview.min.css">
+
+  <script src="script/jquery-2.2.4.min.js"></script>
+  <script src="script/bootstrap.min.js"></script>
+  <script src="script/jquery-ui.min.js"></script>
+  <script src="script/jquery.fileupload.js"></script>
+  <script src="script/config.js"></script>
+  <script src="script/main.js"></script>
+  <script src="script/jquery.jsonview.min.js"></script>
+</head>
+<body>
+  <!-- Fixed navbar -->
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <span class="navbar-brand" href="#">
+          <b>TrapRange Invoices</b>
+        </span>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav" style="float: right">
+          <li><a href="#about">About</a></li>
+          <li><a target='_blank' href="http://thoqbk.github.io/contact/">Contact</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </nav>
+
+  <!-- Begin page content -->
+  <div class="upload-container">
+    <div class="container">
+      <h3>Preview</h3>
+      <div class="page-image-container">
+        <img src="images/sample1.png" />
+      </div>
+      <br />
+      <center>
+        <input type="file" name="file" id="file" class="file-upload" accept='.pdf,.PDF' />
+        <button id="upload-button" class="btn btn-lg btn-success" onClick="triggerSelectFile()">
+          <span class="glyphicon glyphicon-cloud-upload"></span>
+          <span id="upload-button-label">Upload</span>
+        </button>
+      </center>
+      <br />
+    </div>
+  </div>
+
+  <div class="results">
+    <div class="container">
+      <h3>Result #1</h3>
+      <div class="json-container"></div>
+      <br />
+    </div>
+  </div>
+  <div class="jumbotron" id="about">
+    <div class='container'>
+      <center>
+        <h3>Learn More about TrapRange Solutions</h3>
+        <hr style='width: 120px; border-color: #AAA' />
+        <a href="https://dzone.com/articles/traprange-method-extract-table" target="_blank">
+          <h4>TrapRange: a Method to Extract Table Content in PDF Files</h4>
+        </a>
+        <a href="https://github.com/thoqbk/traprange/blob/master/_Docs/invoice/README.md" target="_blank">
+          <h4>More Examples</h4>
+        </a>
+        <hr style='width: 120px; border-color: #AAA' />
+        <h4>
+          Finding Enterprise Solution for Parsing PDF Invoices and Bills?
+          <a href="http://thoqbk.github.io/contact/" target="_blank">Contact us</a>
+        </h4>
+      </center>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="text-muted">&copy; TrapRange Invoices <span id='year'>2018</span></p>
+    </div>
+  </footer>
+</body>
 </html>
