@@ -22,7 +22,7 @@ function initializeFileUpload() {
         + '</div>';
       $('.results').prepend(html);
       $('#' + id).JSONView(response.result.payload, {collapsed: true});
-      window.location.href = '#results';
+      gotoResults();
     },
     complete: function() {
       $('#upload-button').removeAttr('disabled');
@@ -33,6 +33,15 @@ function initializeFileUpload() {
 
 function triggerSelectFile() {
   $('#file').trigger('click');
+}
+
+function gotoResults() {
+  var $target = $('#results');
+  $('html, body').stop().animate({
+    'scrollTop': $target.offset().top
+  }, 900, 'swing', function () {
+    window.location.hash = '#results';
+  });
 }
 
 $(document).ready(function() {
