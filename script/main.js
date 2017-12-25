@@ -22,6 +22,7 @@ function initializeFileUpload() {
         + '</div>';
       $('.results').prepend(html);
       $('#' + id).JSONView(response.result.payload, {collapsed: true});
+      window.location.href = '#results';
     },
     complete: function() {
       $('#upload-button').removeAttr('disabled');
