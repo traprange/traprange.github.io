@@ -4,7 +4,7 @@ function initializeFileUpload() {
     dataType: 'json',
     start: function() {
       $('#upload-button').attr('disabled', 'disabled');
-      $('#upload-button-label').text('Processing...');
+      $('#upload-button-label').text('Uploading...');
     },
     done: function (e, response) {
       if(response.result.pageImage != null) {
@@ -26,7 +26,7 @@ function initializeFileUpload() {
     },
     complete: function() {
       $('#upload-button').removeAttr('disabled');
-      $('#upload-button-label').text('Uploading');
+      $('#upload-button-label').text('Upload');
     }
   });
 }
