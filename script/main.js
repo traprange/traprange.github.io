@@ -23,6 +23,7 @@ function initializeFileUpload() {
       $('.results').prepend(html);
       $('#' + id).JSONView(response.result.payload, {collapsed: true});
       gotoResults();
+      window.lastFileName = response.result.fileName;
     },
     complete: function() {
       $('#upload-button').removeAttr('disabled');
@@ -42,6 +43,17 @@ function gotoResults() {
   }, 900, 'swing', function () {
     window.location.hash = '#results';
   });
+}
+
+function tellMeWhenItsReady() {
+  var email = $('#email').val();
+  if(email == '' || email.trim().length == 0) {
+    return;
+  }
+  $.post(TELL_ME_WHEN_ITS_READY, {email: email, lastFileName: window.lastFileName});
+  $('#submit-btn').attr('disabled', 'disabled');
+  $('#email').attr('disabled', 'disabled');
+  $('#email-form h4').show();
 }
 
 $(document).ready(function() {

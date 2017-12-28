@@ -1,9 +1,11 @@
 var DEBUG = false;
 var UPLOAD_API = 'https://traprange-invoice.herokuapp.com/upload';
+var TELL_ME_WHEN_ITS_READY = 'https://traprange-invoice.herokuapp.com/tell-me-when-its-ready';
 var BASE_API_URL = null;
 
 if(DEBUG) {
   UPLOAD_API = 'http://localhost:8080/upload';
+  TELL_ME_WHEN_ITS_READY = 'http://localhost:8080/tell-me-when-its-ready';
 }
 
 BASE_API_URL = UPLOAD_API + "/";
